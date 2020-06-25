@@ -3,6 +3,8 @@ from time import sleep
 from dotenv import load_dotenv
 from discord.ext import commands
 from discord.utils import get
+from random import randint
+from csv import reader
 import discord
 
 # Load secret from .env file
@@ -26,5 +28,17 @@ async def killme(ctx):
 @bot.command()
 async def why(ctx):
   await ctx.send("why hello there")
+
+@bot.command()
+async def eduardo(ctx):
+  with open('quotes.csv', newline='') as csvfile:
+    csv_quotes = reader(csvfile, delimiter=' ', quotechar='|')
+    quotes = list(csv_quotes)
+    x = randint(0, len(quotes))
+    msg = ""
+    for i in quotes[x]:
+      msg = msg + i + " "
+    await ctx.send(f'{msg}')
+    
 
 bot.run(TOKEN)
