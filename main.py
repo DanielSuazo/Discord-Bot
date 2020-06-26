@@ -34,11 +34,10 @@ async def eduardo(ctx):
   with open('quotes.csv', newline='') as csvfile:
     csv_quotes = reader(csvfile, delimiter=' ', quotechar='|')
     quotes = list(csv_quotes)
-    x = randint(0, len(quotes))
+    x = randint(0, len(quotes)-1)
     msg = ""
     for i in quotes[x]:
       msg = msg + i + " "
     await ctx.send(f'{msg}')
-    
 
 bot.run(TOKEN)
