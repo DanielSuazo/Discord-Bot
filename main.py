@@ -41,3 +41,5 @@ async def eduardo(ctx):
     await ctx.send(f'{msg}')
 
 bot.run(TOKEN)
+
+#help
