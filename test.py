@@ -15,4 +15,6 @@ def fun(i):
 
   return fun()
 
-print(fun(0))
+list_switch = [test(), test2()]
+
+print(list_switch[1])
