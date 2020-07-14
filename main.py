@@ -44,7 +44,7 @@ async def eduardo(ctx):
       msg = msg + i + " "
     await ctx.send(f'{msg}')
 
-@bot.command(name="bop")
+@bot.command(name="bop", aliases = ["b"], brief = "Gives you more songs to listen to", help = "Responds with a random song from the front page of r/listentothis")
 async def bop(ctx):
   song_count = len(spotify.playlist_tracks("0uhzIssXs8d2tFGi3vNHCW")["items"])
   x = randint(0, song_count - 1)

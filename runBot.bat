@@ -1,0 +1,1 @@
+python "C:\Users\danie\Documents\Projects\Discord Bot\main.py"
