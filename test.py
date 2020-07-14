@@ -1,6 +1,6 @@
 
 def test():
-  return "killme"
+  print("killme")
 
 def test2():
   return "killme2"
@@ -17,4 +17,4 @@ def fun(i):
 
 list_switch = [test(), test2()]
 
-print(list_switch[1])
+list_switch[0]

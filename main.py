@@ -25,13 +25,6 @@ async def on_ready():
   for i in bot.guilds:
     print(i.name, i.id)
 
-@bot.command()
-async def killme(ctx):
-  await ctx.send("how may i help you?")
-
-@bot.command()
-async def why(ctx):
-  await ctx.send("why hello there")
 
 @bot.command(name='eduardo', aliases = ["e", "edu"], brief = "A glimpse into the psyche of the genius known as Eduardo", help = "Responds with a quote from Eduardo")
 async def eduardo(ctx):
@@ -44,12 +37,26 @@ async def eduardo(ctx):
       msg = msg + i + " "
     await ctx.send(f'{msg}')
 
+
 @bot.command(name="bop", aliases = ["b"], brief = "Gives you more songs to listen to", help = "Responds with a random song from the front page of r/listentothis")
 async def bop(ctx):
   song_count = len(spotify.playlist_tracks("0uhzIssXs8d2tFGi3vNHCW")["items"])
   x = randint(0, song_count - 1)
   link = spotify.playlist_tracks("6qZnImkqxbRtL9FiwqHkGK")["items"][x]["track"]["external_urls"]["spotify"]
   await ctx.send(link)
-bot.run(TOKEN)
 
-#help
+
+@bot.command(name="d20")
+async def d20(ctx):
+  x = randint(0, 1)
+  switch = [fuck_you, ily]
+  await switch[x](ctx)
+
+
+async def fuck_you(ctx):
+  await ctx.send("fuck you")
+
+async def ily(ctx):
+  await ctx.send("i love you")
+
+bot.run(TOKEN)
